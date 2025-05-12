@@ -1,20 +1,30 @@
 module.exports = {
-  up: (queryInterface, sequelize) => {
+  up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('movies', {
       id: {
-        type: sequelize.INTEGER,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
       title: {
-        type: sequelize.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      description: sequelize.STRING,
-      year: sequelize.INTEGER,
+      description: Sequelize.STRING,
+      year: Sequelize.INTEGER,
       poster_url: {
-        type: sequelize.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW,
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW,
       },
     });
   },

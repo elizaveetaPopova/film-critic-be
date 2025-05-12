@@ -1,19 +1,19 @@
 module.exports = {
-  up: (queryInterface, sequelize) => {
+  up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('reviews', {
       id: {
-        type: sequelize.INTEGER,
+        type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      text: sequelize.STRING,
+      text: Sequelize.STRING,
       rating: {
-        type: sequelize.FLOAT,
+        type: Sequelize.FLOAT,
         allowNull: false,
         defaultValue: 1,
       },
       movie_id: {
-        type: sequelize.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'movies',
@@ -22,13 +22,23 @@ module.exports = {
         onDelete: 'CASCADE',
       },
       user_id: {
-        type: sequelize.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'users',
           key: 'id',
         },
         onDelete: 'CASCADE',
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW,
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW,
       },
     });
   },
