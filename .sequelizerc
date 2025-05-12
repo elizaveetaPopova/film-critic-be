@@ -1,6 +1,10 @@
-import path from 'path';
+const path = require('path');
+const { ConfigModule } = require('@nestjs/config');
 
-export default {
-  config: path.resolve('db', 'config.ts'),
+ConfigModule.forRoot({ isGlobal: true });
+
+module.exports = {
+  config: path.resolve('db', 'config.js'),
+  modelsPath: path.resolve('db', 'models'),
   migrationsPath: path.resolve('db', 'migrations'),
 };
