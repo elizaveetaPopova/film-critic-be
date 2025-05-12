@@ -1,32 +1,20 @@
-const { DataTypes } = require('sequelize');
-
 module.exports = {
-  up: (queryInterface) => {
+  up: (queryInterface, sequelize) => {
     return queryInterface.createTable('movies', {
       id: {
-        type: DataTypes.INTEGER,
+        type: sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
       title: {
-        type: DataTypes.STRING,
+        type: sequelize.STRING,
         allowNull: false,
       },
-      description: DataTypes.STRING,
-      year: DataTypes.INTEGER,
+      description: sequelize.STRING,
+      year: sequelize.INTEGER,
       poster_url: {
-        type: DataTypes.STRING,
+        type: sequelize.STRING,
         allowNull: false,
-      },
-      created_at: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
-      updated_at: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
       },
     });
   },

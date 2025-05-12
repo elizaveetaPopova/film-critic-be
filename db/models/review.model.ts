@@ -6,6 +6,7 @@ import {
   ForeignKey,
   BelongsTo,
 } from 'sequelize-typescript';
+
 import User from './user.model';
 import Movie from './movie.model';
 

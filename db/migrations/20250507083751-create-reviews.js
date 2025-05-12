@@ -1,21 +1,19 @@
-const { DataTypes } = require('sequelize');
-
 module.exports = {
-  up: (queryInterface) => {
+  up: (queryInterface, sequelize) => {
     return queryInterface.createTable('reviews', {
       id: {
-        type: DataTypes.INTEGER,
+        type: sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      text: DataTypes.STRING,
+      text: sequelize.STRING,
       rating: {
-        type: DataTypes.FLOAT,
+        type: sequelize.FLOAT,
         allowNull: false,
         defaultValue: 1,
       },
       movie_id: {
-        type: DataTypes.INTEGER,
+        type: sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'movies',
@@ -24,23 +22,13 @@ module.exports = {
         onDelete: 'CASCADE',
       },
       user_id: {
-        type: DataTypes.INTEGER,
+        type: sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'users',
           key: 'id',
         },
         onDelete: 'CASCADE',
-      },
-      created_at: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
-      updated_at: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
       },
     });
   },
