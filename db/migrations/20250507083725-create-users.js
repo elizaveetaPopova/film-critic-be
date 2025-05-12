@@ -1,35 +1,23 @@
-const { DataTypes } = require('sequelize');
-
 module.exports = {
-  up: async (queryInterface) => {
+  up: async (queryInterface, sequelize) => {
     await queryInterface.createTable('users', {
       id: {
-        type: DataTypes.INTEGER,
+        type: sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
       email: {
-        type: DataTypes.STRING,
+        type: sequelize.STRING,
         unique: true,
         allowNull: false,
       },
       password: {
-        type: DataTypes.STRING,
+        type: sequelize.STRING,
         allowNull: false,
       },
       role: {
-        type: DataTypes.ENUM('admin', 'user', 'moderator'),
+        type: sequelize.ENUM('admin', 'user', 'moderator'),
         defaultValue: 'user',
-      },
-      created_at: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
-      updated_at: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
       },
     });
   },
