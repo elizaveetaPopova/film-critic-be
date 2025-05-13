@@ -30,6 +30,7 @@ export class MoviesService {
     try {
       return await this.moviesRepository.findAll({
         attributes: ['id', 'title', 'description', 'year', 'posterUrl'],
+        order: [['id', 'ASC']],
       });
     } catch (error) {
       console.error('DB error in findAll:', error);
