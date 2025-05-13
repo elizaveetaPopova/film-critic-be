@@ -1,7 +1,7 @@
 import { Column, DataType, Table, Model, HasMany } from 'sequelize-typescript';
 
-import Review from './review.model';
-import UserMovieStatus from './user-movie-status.model';
+import Review from '../../../db/models/review.model';
+import UserMovieStatus from '../../../db/models/user-movie-status.model';
 
 @Table({
   tableName: 'movies',

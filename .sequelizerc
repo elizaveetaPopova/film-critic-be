@@ -5,6 +5,5 @@ ConfigModule.forRoot({ isGlobal: true });
 
 module.exports = {
   config: path.resolve('db', 'config.js'),
-  modelsPath: path.resolve('db', 'models'),
   migrationsPath: path.resolve('db', 'migrations'),
 };

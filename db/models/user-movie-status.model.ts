@@ -8,7 +8,7 @@ import {
 } from 'sequelize-typescript';
 
 import User from './user.model';
-import Movie from './movie.model';
+import Movie from '../../src/movies/models/movie.model';
 
 @Table({
   tableName: 'user_movie_statuses',
